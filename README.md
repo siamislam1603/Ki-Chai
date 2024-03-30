@@ -12,5 +12,11 @@
 <p><h4>Customer</h4></p>
 <P>Customers can sign up to Ki Chai ?! with their google account, email, password. (Detailed view of Login+Signup is given in Figma).</P>
 <p>Users can select dates from their calendars which will show them a list in the pop up, which will contain that particular day's listed call outs and to which vendor/spcialist that call out has been associated to.Selecting the see more button under each call out will let them to see details.</p>
-<P> Upon entering the dashboard, users will see a calendar, which will track their upcoming tasks. Users will click to Ki Chai ?! to initiate a new call out (service request). Then they will be propmpted to choose from Ekhon Chai ?! or Pore Chai ?!. Selecting Ekhon Chai ?! will only show the vendors/specialists who can provide emergency service (more on that later). Detailed UI is in the figma link. Users will then select a particular vendor or specialist to pick up their request. Users will have an option to view the particular vendor/specialist before selecting him as the service provider </P>
+<P> Upon entering the dashboard, users will see a calendar, which will track their upcoming tasks. Users will click to Ki Chai ?! to initiate a new call out (service request). Then they will be propmpted to choose from Ekhon Chai ?! or Pore Chai ?!. Selecting Ekhon Chai ?! will only show the vendors/specialists who can provide emergency service (more on that later). Detailed UI is in the figma link. Users will then select a particular vendor or specialist to pick up their request. Users will have an option to view the particular vendor/specialist before selecting him as the service provider.</P>
 <p>The Pore Chai !? will have the same effect as Ekhon Chai !? only now there won't be any sort of restriction based on the service provider. Any vendor or specialist who can provide the requested service will be shown in the list of available vendor/spcialists.</p>
+<p>Users will then have a rating option as well once the work is done.They will also have chance to submit a review text along with rate the user within 5 stars.</p>
+<p>The notifications will be sent on some conditions <ul>
+  <li>Service Request Denied</li>
+  <li>Upcoming tasks within the hour</li>
+  <li>Not rated any completed service yet</li>
+</ul></p>
