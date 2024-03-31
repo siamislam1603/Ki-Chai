@@ -1,12 +1,22 @@
 # Ki-Chai
-<h2 color="blue">Ki Chai ?! is a dummy web application project targeting for users to receive instant services or schedule services for later </h2>
+<h2>Ki Chai ?! is a dummy web application project targeting for users to receive instant services or schedule services for later </h2>
 
 <h3><a href="https://www.figma.com/file/l4oiD49265PuS6ZEGkC59j/KiChai-UI%2FUX-(Copy)?type=design&node-id=0%3A1&mode=design&t=E0ExOHtSAB0hAhaK-1">Figma Link</h3>
 <h3><a href="https://docs.google.com/spreadsheets/d/1PvS7hiIsBxuIwPZcQ3fVEvRd9427L8-tdO9d4jjcPfE/edit?usp=sharing">Scope Of Work</h3>
 
 <h3>Project Brief</h3>
 
-<p>Ki Chai ?! has 3 types of users, customer, vendor and specialist. There is calendar view for each type of user to track their scheduled/upcoming tasks(This calendar is systam data generated, no google calendar integration is required). Users can call for tasks in two ways -Ekhoni Chai ?! (For instant service -> Within 1 hour) or Pore Chai ?! (A choice of date and time will be given). </p>
+<p>Ki Chai ?! is an online web based asset management system designed to target it's users a much smoother and easier experience in finding a professional service to work around the house. Ki Chai ?! integrates a more dynamic approach to service calling (Call Outs) by implementing a dynamic calendar which will track a user's callouts. 
+Ki Chai ?! has two types of call outs <ol><li>Ekhon Chai ?!</li><li>Pore Chai ?!</li></ol> Ki Chai ?! will have a total of 3 user types, Customer, vendor, and specialist. For simplicity, they can be better described as 
+<ul>
+  <li>Customer
+    <p>Customers are the ones who generate a call out by clicking the Ki Chai ?! button. They then select the type of service that is required and filter all available vendor/specialist from there.</p>
+  </li>
+  <li>Vendor
+    <p>Vendors can be identified as a staff augmentation platform where they will supply particular professionals for each type of services. Currently there won't be a ny staff tracking within system.</p>
+  </li>
+</ul>
+</p>
 <p>All types of users will receive notifications from within the system, which they can view from their notification tabs and via gmail, they will also receive OTP via gmail.</p>
 <p><h3>User Type Description</h3></p>
 <p><h4>Customer</h4></p>
