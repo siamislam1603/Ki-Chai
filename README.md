@@ -7,7 +7,8 @@
 <h3>Project Brief</h3>
 
 <p>Ki Chai ?! is an online web based asset management system designed to target it's users a much smoother and easier experience in finding a professional service to work around the house. Ki Chai ?! integrates a more dynamic approach to service calling (Call Outs) by implementing a dynamic calendar which will track a user's callouts. 
-Ki Chai ?! has two types of call outs <ol><li>Ekhon Chai ?!</li><li>Pore Chai ?!</li></ol> Ki Chai ?! will have a total of 3 user types, Customer, vendor, and specialist. For simplicity, they can be better described as 
+Ki Chai ?! has two types of call outs <ol><li>Ekhon Chai ?!</li><li>Pore Chai ?!</li></ol> Ki Chai ?! will have a total of 3 user types, Customer, vendor, and specialist. For simplicity, they can be better described as :
+<br></br>
 <ul>
   <li>Customer
     <p>Customers are the ones who generate a call out by clicking the Ki Chai ?! button. They then select the type of service that is required and filter all available vendor/specialist from there.</p>
