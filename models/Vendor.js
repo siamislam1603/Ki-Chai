@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const specialistSchema = new mongoose.Schema(
+const vendorSchema = new mongoose.Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
@@ -11,8 +11,8 @@ const specialistSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
-    nid_picture: {
-      type: [String],
+    company_reg_certificate: {
+      type: String,
       required: true,
     },
     user_description: {
@@ -36,6 +36,6 @@ const specialistSchema = new mongoose.Schema(
   }
 );
 
-const Specialist = mongoose.model("Specialist", specialistSchema);
+const Vendor = mongoose.model("Vendor", vendorSchema);
 
-export default Specialist;
+export default Vendor;
