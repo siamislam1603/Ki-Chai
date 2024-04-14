@@ -9,6 +9,7 @@ import corsOptions from "./config/corsOptions.js";
 import { connectDB } from "./config/dbConn.js";
 import errorHandler from "./middleware/errorHandler.js";
 import { logEvents, logger } from "./middleware/logger.js";
+import uploadRoutes from "./routes/uploadRoutes.js";
 import { rootDir } from "./util/rootDir.js";
 dotenv.config();
 
@@ -31,6 +32,8 @@ app.use(cookieParser());
 //static is a middleware which can give access to use static files in express.
 app.use("/", express.static(path.join(rootDir(), "public")));
 
+app.use("/uploads", uploadRoutes);
+
 // not found route
 app.use("*", (req, res, next) => {
   res.status(404).json({ message: "Not found!" });
@@ -38,15 +41,18 @@ app.use("*", (req, res, next) => {
 
 app.use(errorHandler);
 
-mongoose.connection.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`listening to port ${PORT}`);
-  });
+app.listen(PORT, () => {
+  console.log(`listening to port ${PORT}`);
 });
+// mongoose.connection.once("open", () => {
+//   app.listen(PORT, () => {
+//     console.log(`listening to port ${PORT}`);
+//   });
+// });
 
-mongoose.connection.on("error", (err) => {
-  logEvents(
-    `${err.no}: ${err.code}\t${err.sysCall}\t${err.hostName}`,
-    "mongoErrLog.log"
-  );
-});
+// mongoose.connection.on("error", (err) => {
+//   logEvents(
+//     `${err.no}: ${err.code}\t${err.sysCall}\t${err.hostName}`,
+//     "mongoErrLog.log"
+//   );
+// });
