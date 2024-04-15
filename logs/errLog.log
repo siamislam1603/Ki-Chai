@@ -489,4 +489,14 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     ],
     "message": "Required"
   }
-]	POST	/uploads/multiple	undefined}Apr 14, 2024 8:23:42PM	f6fabd63-3951-4584-820d-61aded1d928a	MulterError: Unexpected field	POST	/uploads/multiple	undefined}Apr 14, 2024 8:24:2PM	a9929c14-28b3-4301-88f1-0662fb6f0dda	MulterError: Unexpected field	POST	/uploads/multiple	undefined}Apr 14, 2024 8:24:50PM	88b941e6-4101-4e57-99c1-f21fcbf103fe	MulterError: Unexpected field	POST	/uploads/multiple	undefined}
+]	POST	/uploads/multiple	undefined}Apr 14, 2024 8:23:42PM	f6fabd63-3951-4584-820d-61aded1d928a	MulterError: Unexpected field	POST	/uploads/multiple	undefined}Apr 14, 2024 8:24:2PM	a9929c14-28b3-4301-88f1-0662fb6f0dda	MulterError: Unexpected field	POST	/uploads/multiple	undefined}Apr 14, 2024 8:24:50PM	88b941e6-4101-4e57-99c1-f21fcbf103fe	MulterError: Unexpected field	POST	/uploads/multiple	undefined}Apr 15, 2024 2:29:31PM	dadf514d-d0d6-489e-9e9f-cc4832fd1671	TypeError: this._def.values is not iterable	POST	/api/auth/register	undefined}Apr 15, 2024 2:29:46PM	27cf5108-5334-4fe3-b939-d353b79bde3a	TypeError: this._def.values is not iterable	POST	/api/auth/register	undefined}Apr 15, 2024 2:29:56PM	46d95a18-313b-4ad8-8832-cc04675349eb	TypeError: this._def.values is not iterable	POST	/api/auth/register	undefined}Apr 15, 2024 2:37:39PM	613dbdf4-1643-46e5-ac0c-c18c482e5ed9	ReferenceError: userSchema is not defined	POST	/api/auth/register	undefined}Apr 15, 2024 2:37:50PM	0ff84390-221a-4344-8df0-489295236035	TypeError: z.string(...).password is not a function	POST	/api/auth/register	undefined}Apr 15, 2024 2:38:16PM	15dd8752-cf65-42cd-92f9-68294d3ed57e	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received string"
+  }
+]	POST	/api/auth/register	undefined}

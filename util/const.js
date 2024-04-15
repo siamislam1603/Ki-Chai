@@ -13,4 +13,5 @@ export const getMimeTypeValidationMsg = (validTypes) => {
 
 export const fieldNames = Object.freeze({
   GYM_CLASS: "gym_classes",
+  REGISTER: "register",
 });

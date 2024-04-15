@@ -1,23 +1,6 @@
 import { z } from "zod";
-import { fieldNames, imageMimeTypes } from "../util/const.js";
-
-const imageSchema = z.object({
-  fieldname: z.string(),
-  originalname: z.string(),
-  encoding: z.string(),
-  mimetype: z.string().refine(
-    (val) => imageMimeTypes.includes(val),
-    () => ({
-      message: `Only ${getMimeTypeValidationMsg(
-        imageMimeTypes
-      )} format allowed!`,
-    })
-  ),
-  destination: z.string(),
-  filename: z.string(),
-  path: z.string(),
-  size: z.number().max(5242880, "File size must be less than 5MB"),
-});
+import { fieldNames } from "../util/const.js";
+import { imageSchema } from "./fileValidation.js";
 
 export const multipleFileUploadSchema = (req) => {
   const filesSchema = {};
@@ -28,7 +11,7 @@ export const multipleFileUploadSchema = (req) => {
     },
     (_, index) => {
       filesSchema[`${fieldName}[${index}][file]`] = z
-        .array(imageSchema)
+        .array(imageSchema())
         .min(1, "At least one file must be uploaded!");
       return;
     }

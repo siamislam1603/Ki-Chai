@@ -11,6 +11,10 @@ class UploadFields {
           fieldsInstance = new GymClassUploadFields(config);
           break;
 
+        case fieldNames.REGISTER:
+          fieldsInstance = new RegisterUploadFields();
+          break;
+
         default:
           break;
       }
@@ -27,6 +31,16 @@ class GymClassUploadFields extends UploadFields {
       name: `${config.fieldName}[${index}][file]`,
       maxCount: 1,
     }));
+  }
+}
+class RegisterUploadFields extends UploadFields {
+  constructor() {
+    super();
+    this.fields = [
+      { name: "profile", maxCount: 1 },
+      { name: "nid_picture", maxCount: 2 },
+      { name: "company_reg_certicate", maxCount: 1 },
+    ];
   }
 }
 
