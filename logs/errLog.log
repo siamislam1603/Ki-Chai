@@ -814,4 +814,91 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     path: 'public\\uploads\\profile\\order_phase_bg-1713261086838.jpg',
     size: 1195143
   }
-]" (type Array) at path "profile"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:8PM	9d0d9d8e-15b2-496c-910c-deb002b38793	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:48PM	6a9c5be9-4c40-454a-af32-fb8dd8b2261e	TypeError: createdUser.toJSON is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:02:1PM	f6d9f6a0-cc0f-4b73-87bc-645db7c0e61a	Error: Failed to register professional!	POST	/api/auth/register	undefined}Apr 16, 2024 4:08:34PM	7a967a09-69fa-44af-857e-ca991506cf84	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:09:44PM	2261b5c3-7891-417a-b0c6-d3ca173c6e26	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:13PM	8079d0fc-02fe-4e0e-be78-409b0c82ca66	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:33PM	216fa7b2-d4f0-43a8-bc17-2ead4554a9a6	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:11:42PM	518e51e7-afcb-417f-bdc5-2d1110de79fa	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:12:48PM	78d742c8-2667-4814-b626-a8ef58382045	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:13:7PM	aba9158f-b77b-4e90-87e9-713e38704c97	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}
+]" (type Array) at path "profile"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:8PM	9d0d9d8e-15b2-496c-910c-deb002b38793	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:48PM	6a9c5be9-4c40-454a-af32-fb8dd8b2261e	TypeError: createdUser.toJSON is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:02:1PM	f6d9f6a0-cc0f-4b73-87bc-645db7c0e61a	Error: Failed to register professional!	POST	/api/auth/register	undefined}Apr 16, 2024 4:08:34PM	7a967a09-69fa-44af-857e-ca991506cf84	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:09:44PM	2261b5c3-7891-417a-b0c6-d3ca173c6e26	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:13PM	8079d0fc-02fe-4e0e-be78-409b0c82ca66	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:33PM	216fa7b2-d4f0-43a8-bc17-2ead4554a9a6	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:11:42PM	518e51e7-afcb-417f-bdc5-2d1110de79fa	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:12:48PM	78d742c8-2667-4814-b626-a8ef58382045	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:13:7PM	aba9158f-b77b-4e90-87e9-713e38704c97	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 10:27:7PM	c19d981c-f98a-4331-878a-352d8c4626dd	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:27:30PM	7100e9cf-a837-44ea-a36d-705a3d3594b5	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "set",
+    "received": "array",
+    "path": [
+      "interests"
+    ],
+    "message": "Expected set, received array"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:29:42PM	90fb4e3f-a260-4997-91c0-7cb27ebf1f19	TypeError: z.coerce.set is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 10:30:0PM	c7dc9676-0c21-465c-8d52-4181c81997d1	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:32:22PM	91a5fe03-bd4a-419b-8d0b-2a594926608b	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:32:55PM	717ce516-e51b-422c-a0c5-4984f8f51fab	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:34:8PM	be7fbad7-f201-48c6-83c3-1edcb25ae3db	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:36:3PM	874c5856-66bf-4974-9cfe-3bb6de39d788	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid data!",
+    "path": [
+      "interests"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:36:15PM	a2ba499a-dcad-4e3e-961a-79985a216a61	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:46:21PM	3cff6cf4-1e5a-4c0f-8ed6-99f9fd6ec702	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:46:57PM	2ec31c58-73dc-4df1-83ae-964fef91ec58	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:47:37PM	01419d74-12d3-4187-a223-4c8b05dc34ef	ZodError: [
+  {
+    "code": "custom",
+    "message": "contain invalid data!",
+    "path": [
+      "interests"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:49:20PM	c4d19e7d-8725-47a1-a07a-193a306499a4	ZodError: [
+  {
+    "code": "custom",
+    "message": "unique value must be provided",
+    "fatal": true,
+    "path": [
+      "interests"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:49:34PM	31a4a8f8-7d16-4aa0-913f-1e304daa6dfb	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid data!",
+    "path": [
+      "interests"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:49:41PM	f26c58f7-6d64-4c07-9ec2-0fbeb6b6357a	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:57:48PM	803615c3-09c8-4f24-aff6-b27f80eb5585	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:58:31PM	4af5fb7a-e150-47b8-9548-ee10b935452b	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 10:58:38PM	2189b812-b5f6-4865-a9df-c39057662fd0	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 11:34:51PM	d77d6e36-bbbb-488a-8c7a-718cf02010a5	ReferenceError: limit is not defined	POST	/api/auth/register	undefined}Apr 16, 2024 11:41:6PM	7671d3df-db3d-46ca-9094-57cbb7999ad8	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "company_reg_certicate"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 11:42:6PM	5db4a8ad-19ae-4e59-8aa4-eb7243051ea2	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 11:42:56PM	62d92026-d8d5-40ce-9a53-8ba7a199216c	ZodError: [
+  {
+    "code": "custom",
+    "message": "email already exists!",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 11:44:56PM	a9437f48-b60d-406e-aaa1-f70de0918689	ZodError: [
+  {
+    "code": "custom",
+    "message": "phone already exists!",
+    "path": [
+      "phone"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 11:45:4PM	d92068fa-b136-4486-bffc-32dc2b75d5c5	Error: test	POST	/api/auth/register	undefined}Apr 17, 2024 12:15:59AM	9e9c4fba-3517-4b80-b2f5-d738a3495f80	ZodError: [
+  {
+    "code": "custom",
+    "message": "phone already exists!",
+    "path": [
+      "phone"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 17, 2024 12:23:32AM	f624f1b9-0480-45b3-8743-6bc5225bef5a	ReferenceError: sendEmail is not defined	POST	/api/auth/register	undefined}Apr 17, 2024 12:25:33AM	990f7c88-c534-4505-baec-cbe4ec83e02b	ReferenceError: sendEmail is not defined	POST	/api/auth/register	undefined}Apr 17, 2024 12:26:25AM	5ea0d12b-a010-4044-b04c-2032647de8d9	Error: Missing destination email	POST	/api/auth/register	undefined}Apr 17, 2024 12:30:42AM	20a5cad4-9eb8-4ee3-a165-dfa8ca35d4b6	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:31:18AM	66c61caf-7135-474b-a47f-c00f7025c374	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:32:52AM	c970c9ff-1d14-4d76-a3f6-9c6c39cb48c0	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:37:8AM	5762da6f-9f3e-4b64-b165-c49b2cbb7bee	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:37:29AM	4cfcaf68-d6a3-4578-9d9e-0748817755f2	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:37:54AM	4cda2fa1-7d65-48e5-98f2-b3fa7bc5f215	Error: The from address does not match a verified Sender Identity. Mail cannot be sent until this error is resolved. Visit https://sendgrid.com/docs/for-developers/sending-email/sender-identity/ to see the Sender Identity requirements	POST	/api/auth/register	undefined}Apr 17, 2024 12:45:5AM	943293fb-5283-44bc-9643-a21916b37ab0	Error: test dfjkl	POST	/api/auth/register	undefined}

@@ -1,7 +1,10 @@
+import crypto from "crypto";
 import { z } from "zod";
 import Service from "../models/Service.js";
-import { imageSchema } from "./fileValidation.js";
+import User from "../models/User.js";
+import { generateOTP } from "../util/const.js";
 import { customBooleanSchema } from "./customSchemas.js";
+import { imageSchema } from "./fileValidation.js";
 
 const userTypes = {
   CUSTOMER: "customer",
@@ -15,16 +18,43 @@ export const userSchema = () => {
     .object({
       first_name: z.string().min(2),
       last_name: z.string().min(2),
-      email: z.string().email(),
+      email: z
+        .string()
+        .email()
+        .refine(
+          async (val) => {
+            const foundUser = await User.findOne({ email: val }).lean();
+            if (foundUser) return false;
+            return true;
+          },
+          { message: "email already exists!" }
+        ),
       password: z.string().min(8).max(32),
       confirm_password: z.string().min(8).max(32),
       city: z.string().min(2),
       postcode: z.coerce.number().refine((val) => val.toString().length >= 4, {
         message: "postcode must contain at least 4 digits",
       }),
-      phone: z.string().min(5),
-      profile: z.array(imageSchema()).min(1, "profile is required"),
+      phone: z
+        .string()
+        .min(5)
+        .refine(
+          async (val) => {
+            const foundUser = await User.findOne({ phone: val }).lean();
+            if (foundUser) return false;
+            return true;
+          },
+          { message: "phone already exists!" }
+        ),
+      profile: z
+        .array(imageSchema())
+        .min(1, "profile is required")
+        .transform((val) => val[0]),
       user_type: userTypeEnums,
+      otp: z.number().default(generateOTP()),
+      account_verify_token: z
+        .string()
+        .default(crypto.randomBytes(32).toString("hex")),
     })
     .refine((data) => data.password === data.confirm_password, {
       message: "Passwords don't match",
@@ -41,7 +71,8 @@ const specialistFileSchema = {
 const vendorFileSchema = {
   company_reg_certicate: z
     .array(imageSchema())
-    .min(1, "company_reg_certicate is required!"),
+    .min(1, "company_reg_certicate is required!")
+    .transform((val) => val[0]),
 };
 
 export const professionalSchema = (user_type) =>
@@ -57,13 +88,23 @@ export const professionalSchema = (user_type) =>
     interests: z
       .array(z.string())
       .min(1)
-      .refine(
-        async (val) => {
-          const result = await Service.find({ _id: { $in: val } }).lean();
-          return result.length === val.length;
-        },
-        {
-          message: "invalid data!",
+      .superRefine(async (val, ctx) => {
+        if ([...new Set(val)].length !== val.length) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "unique value must be provided",
+            fatal: true,
+          });
+
+          return z.NEVER;
         }
-      ),
+        const result = await Service.find({ _id: { $in: val } }).lean();
+
+        if (result.length !== val.length) {
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            message: "invalid data!",
+          });
+        }
+      }),
   });

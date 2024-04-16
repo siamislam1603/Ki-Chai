@@ -1,6 +1,3 @@
-import nodemailer from "nodemailer";
-import sendgridTransport from "nodemailer-sendgrid-transport";
-
 export const imageMimeTypes = ["image/jpeg", "image/png", "image/webp"];
 
 export const getMimeTypeValidationMsg = (validTypes) => {
@@ -19,10 +16,12 @@ export const fieldNames = Object.freeze({
   REGISTER: "register",
 });
 
-export const mailTransporter = nodemailer.createTransport(
-  sendgridTransport({
-    auth: {
-      api_key: process.env.SENDGRID_API_KEY,
-    },
-  })
-);
+export const generateOTP = () => {
+  const digits = "0123456789";
+  const limit = 6;
+  let OTP = "";
+  for (let i = 0; i < limit; i++) {
+    OTP += digits[Math.floor(Math.random() * 10)];
+  }
+  return +OTP;
+};

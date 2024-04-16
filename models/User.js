@@ -36,10 +36,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    is_verified: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
     otp: {
       type: Number,
     },
-    verify_account_token: {
+    account_verify_token: {
       type: String,
     },
     reset_password_token: {

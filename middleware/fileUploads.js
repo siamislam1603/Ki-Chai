@@ -68,18 +68,9 @@ export const deleteUploadedFiles = (files) => {
   });
 };
 
-const resolveFilePath = (file) => {
-  const filePath = file.destination + "/" + file.filename;
-  return filePath;
-};
-
 // file-path resolver
-export const resolveFilePaths = (files, isMultiple = true) => {
+export const resolveFilePath = (file) => {
   const domain = process.env.BACKEND_DOMAIN;
-  if (!isMultiple) {
-    return `${domain}/${resolveFilePath(files[0])}`;
-  } else {
-    const filePaths = files.map((file) => `${domain}/${resolveFilePath(file)}`);
-    return filePaths;
-  }
+  const filePath = file.destination + "/" + file.filename;
+  return `${domain}/${filePath}`;
 };
