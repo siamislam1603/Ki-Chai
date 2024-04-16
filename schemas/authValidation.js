@@ -1,6 +1,7 @@
 import { z } from "zod";
 import Service from "../models/Service.js";
 import { imageSchema } from "./fileValidation.js";
+import { customBooleanSchema } from "./customSchemas.js";
 
 const userTypes = {
   CUSTOMER: "customer",
@@ -18,7 +19,9 @@ export const userSchema = () => {
       password: z.string().min(8).max(32),
       confirm_password: z.string().min(8).max(32),
       city: z.string().min(2),
-      postcode: z.number().min(4),
+      postcode: z.coerce.number().refine((val) => val.toString().length >= 4, {
+        message: "postcode must contain at least 4 digits",
+      }),
       phone: z.string().min(5),
       profile: z.array(imageSchema()).min(1, "profile is required"),
       user_type: userTypeEnums,
@@ -41,20 +44,26 @@ const vendorFileSchema = {
     .min(1, "company_reg_certicate is required!"),
 };
 
-export const professionalSchema = (req) =>
+export const professionalSchema = (user_type) =>
   z.object({
-    per_hour_rate: z.number().min(1),
-    ...(req.body.user_type === userTypeEnums.enum.SPECIALIST
+    per_hour_rate: z.coerce.number().refine((val) => val >= 1, {
+      message: "per_hour_rate must be greater than or equal to 1",
+    }),
+    ...(user_type === userTypeEnums.enum.SPECIALIST
       ? specialistFileSchema
       : vendorFileSchema),
     user_description: z.string().min(2),
-    is_available_for_emergency: z.boolean(),
+    is_available_for_emergency: customBooleanSchema,
     interests: z
-      .array()
+      .array(z.string())
       .min(1)
-      .refine(async (val) => {
-        const result = await Service.find({ _id: { $in: val } }).lean();
-        console.log({ result, val });
-        return result.length === val.length;
-      }),
+      .refine(
+        async (val) => {
+          const result = await Service.find({ _id: { $in: val } }).lean();
+          return result.length === val.length;
+        },
+        {
+          message: "invalid data!",
+        }
+      ),
   });

@@ -53,7 +53,7 @@ const deleteSingleFile = (file) => {
   if (file.destination && file.filename) {
     const filePath = file.destination + "/" + file.filename;
     if (filePath && fs.existsSync(filePath)) {
-      console.log(filePath)
+      console.log(filePath);
       fs.unlinkSync(filePath);
     }
   }
@@ -66,4 +66,20 @@ export const deleteUploadedFiles = (files) => {
       deleteSingleFile(file);
     });
   });
+};
+
+const resolveFilePath = (file) => {
+  const filePath = file.destination + "/" + file.filename;
+  return filePath;
+};
+
+// file-path resolver
+export const resolveFilePaths = (files, isMultiple = true) => {
+  const domain = process.env.BACKEND_DOMAIN;
+  if (!isMultiple) {
+    return `${domain}/${resolveFilePath(files[0])}`;
+  } else {
+    const filePaths = files.map((file) => `${domain}/${resolveFilePath(file)}`);
+    return filePaths;
+  }
 };

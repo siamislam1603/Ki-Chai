@@ -5,6 +5,7 @@ import { deleteUploadedFiles } from "./fileUploads.js";
 import { logEvents } from "./logger.js";
 
 const errorHandler = (err, req, res, next) => {
+  console.log(err);
   if (req.file) {
     deleteUploadedFiles({ file: [req.file] });
   } else if (req.files) {

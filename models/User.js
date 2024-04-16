@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema(
       required: true,
     },
     city: {
-      type: Number,
+      type: String,
       required: true,
     },
     postcode: {
@@ -39,6 +39,14 @@ const userSchema = new mongoose.Schema(
     },
     reset_password_token_expiration: {
       type: Number,
+    },
+    vendor: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Vendor",
+    },
+    specialist: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Specialist",
     },
   },
   {

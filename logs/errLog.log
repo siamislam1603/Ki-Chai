@@ -499,4 +499,319 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     ],
     "message": "Expected number, received string"
   }
-]	POST	/api/auth/register	undefined}
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:17:51AM	32f6757c-2f81-4e09-aef8-8ed21bcc72fb	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received string"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 10:19:31AM	3cb6125e-02f9-4405-96f5-d57c78120368	TypeError: z.string(...).transform(...).min is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 10:20:39AM	5554d517-c804-44ed-aed3-603e6c809a3c	TypeError: z.string(...).transform(...).number is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 10:22:18AM	34514b0f-fd60-4004-a16d-77159264ac99	ZodError: [
+  {
+    "code": "custom",
+    "message": "Passwords don't match",
+    "path": [
+      "confirm_password"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:08:43PM	8b8b6f97-7674-44d5-a9d8-764abf58697a	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:09:39PM	b2230e2c-ffeb-480b-a028-272be9289a67	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:10:6PM	f9698d26-bf3d-4821-92d7-ea764d448c68	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:10:24PM	e7a12b1b-a0e9-4f90-aa20-fef393aa3d26	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:10:26PM	934a4005-ed54-4a18-b94e-473e0815a064	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:10:27PM	0baea8c8-bb15-4c6f-b108-05e63855e02b	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:14:7PM	4135de83-fde0-4a2a-a71f-4facbdb3c8fb	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "profile"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 12:19:55PM	a7b6eaee-511d-4344-b449-31c60be270d9	TypeError: professionalSchema(...).parseAsync is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 12:27:23PM	be3ef7ec-7e3e-4267-a0c0-0e9386a4cce4	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:28:50PM	e65e0746-c288-4375-985e-c9feaee35885	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:32:0PM	dbfefafc-5244-48ee-acdd-a7c2346ed957	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:33:45PM	12b82786-836c-4ed6-88d8-99d2c5804946	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:35:30PM	021bf9e5-96db-47a4-9112-3f05b8e098de	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:35:58PM	6b8f6c5a-861d-44dc-9265-dda97435d925	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:38:33PM	c52e9cff-147a-4ef7-81e7-6f7ef757a79e	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:38:44PM	7ccf4de4-d224-46e5-adfb-cb5d397a3de5	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:39:44PM	18f0083b-f4e6-4bce-ade0-be6e35b5fc2e	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:55:0PM	155243eb-c9cb-4989-af34-f99989ac9019	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 12:55:13PM	fd022aa1-9242-490e-b43d-d7a3df61d7c7	TypeError: z.array(...).min(...).refineAsync is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 1:05:14PM	95f9d329-6fe8-4657-8ec4-b27801556a31	TypeError: z.array(...).min(...).refineAsync is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 1:05:34PM	76b6c751-6987-4282-9634-6eab33142c8b	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 1:06:2PM	1a92a728-18ca-4eb1-966a-aeaf698e7e67	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 1:07:17PM	1575cbe3-0c82-43b1-ab98-6c3cf8da0989	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 1:07:36PM	d37de9a7-ef75-4ea5-922d-11a246e23d9f	TypeError: Cannot read properties of undefined (reading '_parseAsync')	POST	/api/auth/register	undefined}Apr 16, 2024 1:08:33PM	987c32a0-d148-43d4-b0ab-635a0f7a0983	CastError: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "Service"	POST	/api/auth/register	undefined}Apr 16, 2024 1:12:50PM	25984c27-6d16-4bc6-b0e4-52518ec04d72	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "array",
+    "path": [],
+    "message": "Expected object, received array"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:15:15PM	92d75532-9859-425b-879c-6a39be820b13	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "array",
+    "path": [],
+    "message": "Expected object, received array"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:16:15PM	29a21f4a-4c93-4487-9dba-e194ade994f9	CastError: Cast to ObjectId failed for value "1" (type string) at path "_id" for model "Service"	POST	/api/auth/register	undefined}Apr 16, 2024 1:40:32PM	cc976cef-1ed2-475b-8dcc-d777c4a77fec	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "company_reg_certicate"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "user_description"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "boolean",
+    "received": "undefined",
+    "path": [
+      "is_available_for_emergency"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:43:3PM	0f4eedfb-2ee6-4a30-981b-8502954c40bc	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "boolean",
+    "received": "string",
+    "path": [
+      "is_available_for_emergency"
+    ],
+    "message": "Expected boolean, received string"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:44:19PM	3820f8a8-01db-4a68-acfa-12fbe7616601	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "per_hour_rate"
+    ],
+    "message": "Expected number, received string"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:54:3PM	2abf50c1-ceb1-47c5-bb33-9dfe51f6b13e	ZodError: [
+  {
+    "code": "custom",
+    "message": "Invalid input",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:55:27PM	ff183c02-9bce-4930-aa21-ddc988899e5c	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid value!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:56:13PM	7a7bc9a1-b62f-4ad2-848d-8d78a185bc9e	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid value!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:56:35PM	09428958-9c51-4012-ad33-370497c89723	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid value!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:57:16PM	953152d6-93fb-4263-b2b4-9680818fdcfd	ZodError: [
+  {
+    "code": "custom",
+    "message": "invalid value!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:57:46PM	2eecfcc5-1159-4fae-89b9-c262e9f32ffb	ZodError: [
+  {
+    "code": "custom",
+    "message": "boolean value required!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:58:7PM	07a85bd5-be98-45d5-809d-1731a8f63108	ZodError: [
+  {
+    "code": "custom",
+    "message": "boolean value required!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:58:58PM	941c7290-32dc-4b02-a4e2-21fa54858bc1	ZodError: [
+  {
+    "code": "custom",
+    "message": "boolean value required!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 1:59:35PM	59e5b297-0233-4027-acb5-1c99b047f3d9	ZodError: [
+  {
+    "code": "custom",
+    "message": "boolean value required!",
+    "path": [
+      "is_available_for_emergency"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 2:04:29PM	5a84a6f6-484c-4774-8986-5f9139894309	ReferenceError: Service is not defined	POST	/api/auth/register	undefined}Apr 16, 2024 2:05:37PM	575b45f4-0198-4601-b03f-639dbffe27cb	CastError: Cast to ObjectId failed for value "661cc645c376f33092b3c2212" (type string) at path "_id" for model "Service"	POST	/api/auth/register	undefined}Apr 16, 2024 2:07:10PM	568ba2fd-2652-4882-9b97-53e82162b9e0	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "array",
+    "received": "undefined",
+    "path": [
+      "nid_picture"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 2:07:24PM	834a6122-514a-44d4-ae67-cf7fb6974bee	ZodError: [
+  {
+    "code": "too_small",
+    "minimum": 2,
+    "type": "array",
+    "inclusive": true,
+    "exact": false,
+    "message": "both sides of the nid_picture is required!",
+    "path": [
+      "nid_picture"
+    ]
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 2:39:30PM	550f6f69-be51-4cb1-b575-92fa71be56c3	ValidationError: Specialist validation failed: nid_picture.0: Cast to [string] failed for value "[\n' +
+  '  {\n' +
+  "    fieldname: 'nid_picture',\n" +
+  "    originalname: 'order_phase_bg.jpg',\n" +
+  "    encoding: '7bit',\n" +
+  "    mimetype: 'image/jpeg',\n" +
+  "    destination: 'public/uploads/nid_picture',\n" +
+  "    filename: 'order_phase_bg-1713256770651.jpg',\n" +
+  "    path: 'public\\\\uploads\\\\nid_picture\\\\order_phase_bg-1713256770651.jpg',\n" +
+  '    size: 1195143\n' +
+  '  },\n' +
+  '  {\n' +
+  "    fieldname: 'nid_picture',\n" +
+  "    originalname: 'order_phase_bg.jpg',\n" +
+  "    encoding: '7bit',\n" +
+  "    mimetype: 'image/jpeg',\n" +
+  "    destination: 'public/uploads/nid_picture',\n" +
+  "    filename: 'order_phase_bg-1713256770659.jpg',\n" +
+  "    path: 'public\\\\uploads\\\\nid_picture\\\\order_phase_bg-1713256770659.jpg',\n" +
+  '    size: 1195143\n' +
+  '  }\n' +
+  ']" (type string) at path "nid_picture.0" because of "CastError"	POST	/api/auth/register	undefined}Apr 16, 2024 2:54:26PM	2c390a9a-2f10-48fc-ae21-0311065233d2	ValidationError: Specialist validation failed: is_available_for_emergency: Path `is_available_for_emergency` is required., user_description: Path `user_description` is required., per_hour_rate: Path `per_hour_rate` is required.	POST	/api/auth/register	undefined}Apr 16, 2024 2:57:56PM	54845698-eb63-43d6-be54-37db7203e3e6	ValidationError: Specialist validation failed: is_available_for_emergency: Path `is_available_for_emergency` is required., user_description: Path `user_description` is required., per_hour_rate: Path `per_hour_rate` is required.	POST	/api/auth/register	undefined}Apr 16, 2024 3:44:48PM	7f49f289-8636-4876-96d0-c126cd25f283	ZodError: [
+  {
+    "received": "falses",
+    "code": "invalid_enum_value",
+    "options": [
+      "0",
+      "1",
+      "true",
+      "false"
+    ],
+    "path": [
+      "is_available_for_emergency"
+    ],
+    "message": "Invalid enum value. Expected '0' | '1' | 'true' | 'false', received 'falses'"
+  }
+]	POST	/api/auth/register	undefined}Apr 16, 2024 3:45:22PM	7c5a2adf-5596-42d2-bc65-44c30979e798	ValidationError: Specialist validation failed: is_available_for_emergency: Path `is_available_for_emergency` is required., user_description: Path `user_description` is required., per_hour_rate: Path `per_hour_rate` is required.	POST	/api/auth/register	undefined}Apr 16, 2024 3:46:55PM	08ef22fe-389f-4caa-91fe-bf3fc4820df0	ValidationError: Specialist validation failed: is_available_for_emergency: Path `is_available_for_emergency` is required., user_description: Path `user_description` is required., per_hour_rate: Path `per_hour_rate` is required.	POST	/api/auth/register	undefined}Apr 16, 2024 3:50:3PM	802d623f-e8ab-41ff-b37d-8b4086322795	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city", profile: Cast to string failed for value "[
+  {
+    fieldname: 'profile',
+    originalname: 'order_phase_bg.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'public/uploads/profile',
+    filename: 'order_phase_bg-1713261003023.jpg',
+    path: 'public\\uploads\\profile\\order_phase_bg-1713261003023.jpg',
+    size: 1195143
+  }
+]" (type Array) at path "profile"	POST	/api/auth/register	undefined}Apr 16, 2024 3:50:51PM	a85b3375-3caa-4abf-bb8d-99a137ab9c9a	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city", profile: Cast to string failed for value "[
+  {
+    fieldname: 'profile',
+    originalname: 'order_phase_bg.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'public/uploads/profile',
+    filename: 'order_phase_bg-1713261050836.jpg',
+    path: 'public\\uploads\\profile\\order_phase_bg-1713261050836.jpg',
+    size: 1195143
+  }
+]" (type Array) at path "profile"	POST	/api/auth/register	undefined}Apr 16, 2024 3:51:27PM	277b0488-f464-4085-95ae-4219793c2bec	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city", profile: Cast to string failed for value "[
+  {
+    fieldname: 'profile',
+    originalname: 'order_phase_bg.jpg',
+    encoding: '7bit',
+    mimetype: 'image/jpeg',
+    destination: 'public/uploads/profile',
+    filename: 'order_phase_bg-1713261086838.jpg',
+    path: 'public\\uploads\\profile\\order_phase_bg-1713261086838.jpg',
+    size: 1195143
+  }
+]" (type Array) at path "profile"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:8PM	9d0d9d8e-15b2-496c-910c-deb002b38793	ValidationError: User validation failed: city: Cast to Number failed for value "Dhaka" (type string) at path "city"	POST	/api/auth/register	undefined}Apr 16, 2024 3:52:48PM	6a9c5be9-4c40-454a-af32-fb8dd8b2261e	TypeError: createdUser.toJSON is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:02:1PM	f6d9f6a0-cc0f-4b73-87bc-645db7c0e61a	Error: Failed to register professional!	POST	/api/auth/register	undefined}Apr 16, 2024 4:08:34PM	7a967a09-69fa-44af-857e-ca991506cf84	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:09:44PM	2261b5c3-7891-417a-b0c6-d3ca173c6e26	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:13PM	8079d0fc-02fe-4e0e-be78-409b0c82ca66	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:10:33PM	216fa7b2-d4f0-43a8-bc17-2ead4554a9a6	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:11:42PM	518e51e7-afcb-417f-bdc5-2d1110de79fa	Error: test	POST	/api/auth/register	undefined}Apr 16, 2024 4:12:48PM	78d742c8-2667-4814-b626-a8ef58382045	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}Apr 16, 2024 4:13:7PM	aba9158f-b77b-4e90-87e9-713e38704c97	TypeError: createdUser.populate is not a function	POST	/api/auth/register	undefined}
