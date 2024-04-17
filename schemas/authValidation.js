@@ -55,6 +55,9 @@ export const userSchema = () => {
       account_verify_token: z
         .string()
         .default(crypto.randomBytes(32).toString("hex")),
+      account_verify_token_expiration: z
+        .number()
+        .default(new Date().getTime() + Number(process.env.OTP_EXPIRATION)),
     })
     .refine((data) => data.password === data.confirm_password, {
       message: "Passwords don't match",
@@ -107,4 +110,14 @@ export const professionalSchema = (user_type) =>
           });
         }
       }),
+  });
+
+export const verifyAccountSchema = () =>
+  z.object({ user_id: z.string(), token: z.string() });
+
+export const verifyOTPSchema = z.coerce
+  .number({ invalid_type_error: "otp is required!" })
+  .positive()
+  .refine((val) => val.toString().length === 6, {
+    message: "invalid otp!",
   });

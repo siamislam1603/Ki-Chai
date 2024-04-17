@@ -47,6 +47,9 @@ const userSchema = new mongoose.Schema(
     account_verify_token: {
       type: String,
     },
+    account_verify_token_expiration: {
+      type: Number,
+    },
     reset_password_token: {
       type: String,
     },

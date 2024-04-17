@@ -4,7 +4,13 @@ import mongoose from "mongoose";
 import Specialist from "../models/Specialist.js";
 import User from "../models/User.js";
 import Vendor from "../models/Vendor.js";
-import { professionalSchema, userSchema } from "../schemas/authValidation.js";
+import {
+  professionalSchema,
+  userSchema,
+  verifyAccountSchema,
+  verifyOTPSchema,
+} from "../schemas/authValidation.js";
+import { generateVerifyAccountParams } from "../util/generateEmailParams.js";
 import sendEmail from "../util/sendEmail.js";
 
 export const postRegister = asyncHandler(async (req, res, next) => {
@@ -45,13 +51,8 @@ export const postRegister = asyncHandler(async (req, res, next) => {
       let createdUser = await User.create([user], { session: session });
       createdUser = createdUser[0];
 
-      // verify-token link creation & sends email to the user
-      const url = `${process.env.FRONTEND_BASE_URL}/user/${createdUser._id}/verify/${createdUser.account_verify_token}`;
-      await sendEmail({
-        to: createdUser.email,
-        subject: "Verify Account",
-        text: url,
-      });
+      // sends email to the user
+      await sendEmail(generateVerifyAccountParams(createdUser));
 
       res.status(201).json({ data: createdUser });
     });
@@ -60,4 +61,38 @@ export const postRegister = asyncHandler(async (req, res, next) => {
   } finally {
     session.endSession();
   }
+});
+
+export const verifyUserAccount = asyncHandler(async (req, res) => {
+  // validation
+  const { token, user_id } = verifyAccountSchema().parse(req.body);
+
+  // fetch user
+  const user = await User.findOne({
+    _id: user_id,
+    account_verify_token: token,
+    account_verify_token_expiration: { $gte: new Date().getTime() },
+  });
+
+  // invalid link validation
+  if (!user) throw new Error("invalid link!");
+
+  // otp validation
+  const otp = verifyOTPSchema.parse(req.body.otp);
+  if (user.otp !== otp) {
+    throw new Error("invalid verification code!");
+  }
+
+  // update verified status & verify-related data
+  user.is_verified = true;
+  user.account_verify_token = null;
+  user.account_verify_token_expiration = null;
+  user.otp = null;
+
+  const updatedUser = await user.save();
+
+  res.status(200).json({
+    message: "user verified successfully.",
+    data: { user: updatedUser },
+  });
 });

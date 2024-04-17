@@ -53,7 +53,6 @@ const deleteSingleFile = (file) => {
   if (file.destination && file.filename) {
     const filePath = file.destination + "/" + file.filename;
     if (filePath && fs.existsSync(filePath)) {
-      console.log(filePath);
       fs.unlinkSync(filePath);
     }
   }
