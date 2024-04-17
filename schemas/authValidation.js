@@ -113,11 +113,13 @@ export const professionalSchema = (user_type) =>
       }),
   });
 
-export const verifyAccountSchema = () =>
+export const verifyAccountSchema = (foundUser=null) =>
   z.object({
-    user_id: z.string().refine((val) => mongoose.Types.ObjectId.isValid(val)),
+    user_id: z
+      .string()
+      .refine((val) => mongoose.Types.ObjectId.isValid(val)),
     token: z.string().length(64),
-  });
+  }).refine(()=>foundUser,{message:'invalid link!'});
 
 export const verifyOTPSchema = z.coerce
   .number({ invalid_type_error: "otp is required!" })

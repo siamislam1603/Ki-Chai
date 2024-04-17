@@ -13,6 +13,8 @@ import {
   verifyAccountSchema,
   verifyOTPSchema,
 } from "../schemas/authValidation.js";
+import BadRequest from "../util/exceptions/BadRequest.js";
+import Unauthorized from "../util/exceptions/Unauthorized.js";
 import { generateVerifyAccountParams } from "../util/generateEmailParams.js";
 import sendEmail from "../util/sendEmail.js";
 
@@ -78,13 +80,11 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
   });
 
   // invalid link validation
-  if (!user) throw new Error("invalid link!");
+  verifyAccountSchema(user).parse(req.body);
 
   // otp validation
   const otp = verifyOTPSchema.parse(req.body.otp);
-  if (user.otp !== otp) {
-    throw new Error("invalid verification code!");
-  }
+  if (user.otp !== otp) throw new BadRequest("invalid verification code!");
 
   // update verified status & verify-related data
   user.is_verified = true;
@@ -104,15 +104,13 @@ export const postLogin = asyncHandler(async (req, res) => {
   const { email, password } = userLoginSchema().parse(req.body);
 
   const existingUser = await User.findOne({ email }).lean();
-  if (!existingUser)
-    return res.status(401).json({ message: "invalid credentials!" });
+  if (!existingUser) throw new Unauthorized("invalid credentials!");
 
   const isPasswordCorrect = await bcrypt.compare(
     password,
     existingUser.password
   );
-  if (!isPasswordCorrect)
-    return res.status(401).json({ message: "invalid credentials!" });
+  if (!isPasswordCorrect) throw new Unauthorized("invalid credentials!");
 
   const token = jwt.sign(
     { email: existingUser.email, id: existingUser._id },
@@ -137,5 +135,4 @@ export const resetPasswordVerification = asyncHandler(async (req, res) => {
     token: user.reset_password_token,
     token_expiration: user.reset_password_token_expiration,
   });
-  
 });
