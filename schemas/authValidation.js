@@ -1,4 +1,5 @@
 import crypto from "crypto";
+import mongoose from "mongoose";
 import { z } from "zod";
 import Service from "../models/Service.js";
 import User from "../models/User.js";
@@ -113,7 +114,10 @@ export const professionalSchema = (user_type) =>
   });
 
 export const verifyAccountSchema = () =>
-  z.object({ user_id: z.string(), token: z.string() });
+  z.object({
+    user_id: z.string().refine((val) => mongoose.Types.ObjectId.isValid(val)),
+    token: z.string().length(64),
+  });
 
 export const verifyOTPSchema = z.coerce
   .number({ invalid_type_error: "otp is required!" })
@@ -121,3 +125,6 @@ export const verifyOTPSchema = z.coerce
   .refine((val) => val.toString().length === 6, {
     message: "invalid otp!",
   });
+
+export const userLoginSchema = () =>
+  z.object({ email: z.string().email(), password: z.string().min(8).max(32) });

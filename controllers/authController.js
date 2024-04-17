@@ -1,11 +1,13 @@
 import bcrypt from "bcrypt";
 import asyncHandler from "express-async-handler";
+import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import Specialist from "../models/Specialist.js";
 import User from "../models/User.js";
 import Vendor from "../models/Vendor.js";
 import {
   professionalSchema,
+  userLoginSchema,
   userSchema,
   verifyAccountSchema,
   verifyOTPSchema,
@@ -95,4 +97,27 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
     message: "user verified successfully.",
     data: { user: updatedUser },
   });
+});
+
+export const postLogin = asyncHandler(async (req, res) => {
+  const { email, password } = userLoginSchema().parse(req.body);
+
+  const existingUser = await User.findOne({ email });
+  if (!existingUser)
+    return res.status(401).json({ message: "invalid credentials!" });
+
+  const isPasswordCorrect = await bcrypt.compare(
+    password,
+    existingUser.password
+  );
+  if (!isPasswordCorrect)
+    return res.status(401).json({ message: "invalid credentials!" });
+
+  const token = jwt.sign(
+    { email: existingUser.email, id: existingUser._id },
+    process.env.ACCESS_TOKEN_SECRET,
+    { expiresIn: process.env.TOKEN_EXPIRATION }
+  );
+
+  return res.status(200).json({ data: { user: existingUser, token } });
 });
