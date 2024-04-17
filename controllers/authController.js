@@ -7,6 +7,7 @@ import User from "../models/User.js";
 import Vendor from "../models/Vendor.js";
 import {
   professionalSchema,
+  resetPasswordVerificationSchema,
   userLoginSchema,
   userSchema,
   verifyAccountSchema,
@@ -102,7 +103,7 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
 export const postLogin = asyncHandler(async (req, res) => {
   const { email, password } = userLoginSchema().parse(req.body);
 
-  const existingUser = await User.findOne({ email });
+  const existingUser = await User.findOne({ email }).lean();
   if (!existingUser)
     return res.status(401).json({ message: "invalid credentials!" });
 
@@ -120,4 +121,21 @@ export const postLogin = asyncHandler(async (req, res) => {
   );
 
   return res.status(200).json({ data: { user: existingUser, token } });
+});
+
+export const resetPasswordVerification = asyncHandler(async (req, res) => {
+  const { email } = resetPasswordVerificationSchema
+    .partial()
+    .parse({ email: req.body.email });
+  const user = await User.findOne({
+    email,
+  });
+
+  // reset password expiration validate
+  resetPasswordVerificationSchema.parse({
+    email,
+    token: user.reset_password_token,
+    token_expiration: user.reset_password_token_expiration,
+  });
+  
 });

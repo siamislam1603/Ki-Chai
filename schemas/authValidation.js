@@ -128,3 +128,23 @@ export const verifyOTPSchema = z.coerce
 
 export const userLoginSchema = () =>
   z.object({ email: z.string().email(), password: z.string().min(8).max(32) });
+
+export const resetPasswordVerificationSchema = z
+  .object({
+    email: z.string().email(),
+    token_expiration: z.number().nullable(),
+    token: z.string().nullable(),
+  })
+  .refine(
+    ({ token_expiration, token }) => {
+      if (token_expiration && token) {
+        if (new Date().getTime() <= token_expiration) return true;
+        return false;
+      }
+      return true;
+    },
+    {
+      message: "reset password verification already sent!",
+      path: ["email"], // path of error
+    }
+  );
