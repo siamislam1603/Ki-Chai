@@ -130,7 +130,6 @@ export const userLoginSchema = () =>
   z.object({ email: z.string().email(), password: z.string().min(8).max(32) });
 
 export const resetPasswordVerificationSchema = (isPartial = false) => {
-  console.log(isPartial);
   let validationSchema = z.object({
     email: z.string().email(),
     reset_password_token_expiration: z.number().nullish(),
@@ -147,6 +146,29 @@ export const resetPasswordVerificationSchema = (isPartial = false) => {
     },
     {
       message: "reset password verification email already sent!",
+      path: ["email"], // path of error
+    }
+  );
+};
+
+export const resendVerifyAccountEmailSchema = (isPartial = false) => {
+  let validationSchema = z.object({
+    email: z.string().email(),
+    account_verify_token_expiration: z.number().nullish(),
+    account_verify_token: z.string().nullish(),
+    otp: z.number().default(generateOTP()),
+  });
+  if (isPartial) validationSchema = validationSchema.partial({ email: false });
+  return validationSchema.refine(
+    ({ account_verify_token_expiration, account_verify_token }) => {
+      if (account_verify_token_expiration && account_verify_token) {
+        if (new Date().getTime() <= account_verify_token_expiration)
+          return false;
+      }
+      return true;
+    },
+    {
+      message: "account verification email already sent!",
       path: ["email"], // path of error
     }
   );

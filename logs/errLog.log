@@ -1221,4 +1221,21 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
       "email"
     ]
   }
-]	POST	/api/auth/reset-password-verification	undefined}
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:58:46PM	5683454b-65eb-48c5-95fc-0bc9c8e5ff84	ZodError: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Invalid email",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth//resend-verify-account-email	undefined}Apr 18, 2024 5:59:1PM	386c2e76-cab2-4fda-a544-c0ccbf0a1e9c	TypeError: Cannot read properties of null (reading 'account_verify_token')	POST	/api/auth//resend-verify-account-email	undefined}Apr 18, 2024 5:59:53PM	9e373e2c-0437-40eb-9ee9-31d2617a9d29	Error: invalid credentials!	POST	/api/auth//resend-verify-account-email	undefined}Apr 18, 2024 6:00:20PM	1a600bb5-9d3e-437d-b3e1-b000d99a6da2	ZodError: [
+  {
+    "code": "custom",
+    "message": "account verification email already sent!",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth//resend-verify-account-email	undefined}

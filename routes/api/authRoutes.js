@@ -25,6 +25,12 @@ authRoutes.post(
 );
 
 authRoutes.post(
+  "/resend-verify-account-email",
+  upload.none(),
+  authController.resendVerifyAccountEmail
+);
+
+authRoutes.post(
   "/login",
   loginLimiter,
   upload.none(),

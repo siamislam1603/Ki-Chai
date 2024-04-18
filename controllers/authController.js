@@ -8,6 +8,7 @@ import User from "../models/User.js";
 import Vendor from "../models/Vendor.js";
 import {
   professionalSchema,
+  resendVerifyAccountEmailSchema,
   resetPasswordVerificationSchema,
   userLoginSchema,
   userSchema,
@@ -64,7 +65,10 @@ export const postRegister = asyncHandler(async (req, res, next) => {
       // sends email to the user
       await sendEmail(generateVerifyAccountParams(createdUser));
 
-      res.status(201).json({ data: createdUser });
+      res.status(201).json({
+        data: { user: createdUser },
+        message: "account verification email sent.",
+      });
     });
   } catch (err) {
     next(err);
@@ -105,6 +109,38 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
   });
 });
 
+export const resendVerifyAccountEmail = asyncHandler(async (req, res) => {
+  const { email } = resendVerifyAccountEmailSchema(true).parse({
+    email: req.body.email,
+  });
+  const user = await User.findOne({
+    email,
+  });
+
+  if (!user) throw new BadRequest("invalid credentials!");
+
+  // account verification email expiration validate
+  const { otp } = resendVerifyAccountEmailSchema().parse({
+    email,
+    account_verify_token: user.account_verify_token,
+    account_verify_token_expiration: user.account_verify_token_expiration,
+  });
+
+  user.account_verify_token = crypto.randomBytes(32).toString("hex");
+  user.account_verify_token_expiration =
+    new Date().getTime() + Number(process.env.OTP_EXPIRATION);
+  user.otp = otp;
+  const updatedUser = await user.save();
+
+  // sends email to the user
+  await sendEmail(generateVerifyAccountParams(updatedUser));
+
+  return res.status(200).json({
+    data: { user: updatedUser },
+    message: "account verification email sent.",
+  });
+});
+
 export const postLogin = asyncHandler(async (req, res) => {
   const { email, password } = userLoginSchema().parse(req.body);
 
@@ -133,6 +169,8 @@ export const resetPasswordVerification = asyncHandler(async (req, res) => {
   const user = await User.findOne({
     email,
   });
+
+  if (!user) throw new BadRequest("invalid credentials!");
 
   // reset password expiration validate
   resetPasswordVerificationSchema().parse({
