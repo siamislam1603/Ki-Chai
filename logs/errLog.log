@@ -972,4 +972,253 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     "message": "invalid link!",
     "path": []
   }
-]	POST	/api/auth/verify-account	undefined}
+]	POST	/api/auth/verify-account	undefined}Apr 18, 2024 5:06:32PM	01310b94-ac51-438d-b558-d89b1af958b8	TypeError: resetPasswordVerificationSchema.partial is not a function	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:07:58PM	6f2e8984-d33c-4072-b347-ff4ff948b8d1	TypeError: resetPasswordVerificationSchema.partial is not a function	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:09:0PM	ce2fb249-4e1e-41fc-8bb9-3a555d971328	TypeError: resetPasswordVerificationSchema.partial is not a function	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:09:9PM	d15c624d-f57c-4564-8c75-206d5e2e78a7	ZodError: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Invalid email",
+    "path": [
+      "email"
+    ]
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:11:33PM	75fbd739-75a2-42af-b999-e5392c6f4062	TypeError: resetPasswordVerificationSchema.partial is not a function	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:14:33PM	a0725418-dc12-41e8-99d5-bbff819e8a6c	ZodError: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Invalid email",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:14:43PM	cb34be99-9383-4889-921e-078e9a94afac	Error: test	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:16:24PM	7c92b39a-0958-454f-abe7-51b8d5461a08	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:17:22PM	6cc2d84c-fe8f-4a1d-a61b-6f75d6c52c67	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:18:41PM	3b3074ba-7883-461d-933a-42b0d03af5d0	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:19:38PM	f12a0a63-7b05-47d7-809e-f7c1657ba414	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:19:55PM	381f9836-c8af-4882-8891-51d315c23536	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:20:39PM	71bdab77-9674-426c-9aa3-cf64ecb9b441	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:21:0PM	b64ba2ca-28e8-4c8a-8a6a-84f3bc435b06	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "undefined",
+    "path": [
+      "reset_password_token_expiration"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "reset_password_token"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:22:22PM	87bfeb73-0407-49c2-a953-c08c37dc4abc	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "email"
+    ],
+    "message": "Required"
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:22:53PM	b0f2eea8-284e-453f-a4dc-62b002b3872e	ZodError: [
+  {
+    "validation": "email",
+    "code": "invalid_string",
+    "message": "Invalid email",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:23:1PM	9eb228e0-d09d-4028-ab8d-9444c54d949d	Error: test	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:24:21PM	f397f7bf-dc5e-49e3-a042-c0a0278f8883	TypeError: resetPasswordVerificationSchema.parse is not a function	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:24:35PM	008ff53d-f642-4e74-919b-fb62319a01fb	Error: test	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:26:21PM	7a4a5bc8-d31c-4996-b3e3-23ecf8a8e63b	Error: test	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:27:8PM	5ca26ec0-df64-42a2-9d6f-5c0cc7412b08	Error: test	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:40:54PM	aad8cef8-de47-49c0-b24c-23f6a7d7c075	ZodError: [
+  {
+    "code": "custom",
+    "message": "reset password verification already sent!",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth/reset-password-verification	undefined}Apr 18, 2024 5:41:22PM	a137b005-3196-4d90-a2f2-bdd2555467dd	ZodError: [
+  {
+    "code": "custom",
+    "message": "reset password verification email already sent!",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth/reset-password-verification	undefined}

@@ -113,13 +113,11 @@ export const professionalSchema = (user_type) =>
       }),
   });
 
-export const verifyAccountSchema = (foundUser=null) =>
+export const verifyAccountSchema = () =>
   z.object({
-    user_id: z
-      .string()
-      .refine((val) => mongoose.Types.ObjectId.isValid(val)),
+    user_id: z.string().refine((val) => mongoose.Types.ObjectId.isValid(val)),
     token: z.string().length(64),
-  }).refine(()=>foundUser,{message:'invalid link!'});
+  });
 
 export const verifyOTPSchema = z.coerce
   .number({ invalid_type_error: "otp is required!" })
@@ -131,22 +129,25 @@ export const verifyOTPSchema = z.coerce
 export const userLoginSchema = () =>
   z.object({ email: z.string().email(), password: z.string().min(8).max(32) });
 
-export const resetPasswordVerificationSchema = z
-  .object({
+export const resetPasswordVerificationSchema = (isPartial = false) => {
+  console.log(isPartial);
+  let validationSchema = z.object({
     email: z.string().email(),
-    token_expiration: z.number().nullable(),
-    token: z.string().nullable(),
-  })
-  .refine(
-    ({ token_expiration, token }) => {
-      if (token_expiration && token) {
-        if (new Date().getTime() <= token_expiration) return true;
-        return false;
+    reset_password_token_expiration: z.number().nullish(),
+    reset_password_token: z.string().nullish(),
+  });
+  if (isPartial) validationSchema = validationSchema.partial({ email: false });
+  return validationSchema.refine(
+    ({ reset_password_token_expiration, reset_password_token }) => {
+      if (reset_password_token_expiration && reset_password_token) {
+        if (new Date().getTime() <= reset_password_token_expiration)
+          return false;
       }
       return true;
     },
     {
-      message: "reset password verification already sent!",
+      message: "reset password verification email already sent!",
       path: ["email"], // path of error
     }
   );
+};

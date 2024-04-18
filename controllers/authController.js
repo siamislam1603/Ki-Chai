@@ -1,4 +1,5 @@
 import bcrypt from "bcrypt";
+import crypto from "crypto";
 import asyncHandler from "express-async-handler";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
@@ -14,8 +15,12 @@ import {
   verifyOTPSchema,
 } from "../schemas/authValidation.js";
 import BadRequest from "../util/exceptions/BadRequest.js";
+import Forbidden from "../util/exceptions/Forbidden.js";
 import Unauthorized from "../util/exceptions/Unauthorized.js";
-import { generateVerifyAccountParams } from "../util/generateEmailParams.js";
+import {
+  generateResetPasswordVerificationParams,
+  generateVerifyAccountParams,
+} from "../util/generateEmailParams.js";
 import sendEmail from "../util/sendEmail.js";
 
 export const postRegister = asyncHandler(async (req, res, next) => {
@@ -80,7 +85,7 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
   });
 
   // invalid link validation
-  verifyAccountSchema(user).parse(req.body);
+  if (!user) throw new Forbidden("invalid link!");
 
   // otp validation
   const otp = verifyOTPSchema.parse(req.body.otp);
@@ -122,17 +127,30 @@ export const postLogin = asyncHandler(async (req, res) => {
 });
 
 export const resetPasswordVerification = asyncHandler(async (req, res) => {
-  const { email } = resetPasswordVerificationSchema
-    .partial()
-    .parse({ email: req.body.email });
+  const { email } = resetPasswordVerificationSchema(true).parse({
+    email: req.body.email,
+  });
   const user = await User.findOne({
     email,
   });
 
   // reset password expiration validate
-  resetPasswordVerificationSchema.parse({
+  resetPasswordVerificationSchema().parse({
     email,
-    token: user.reset_password_token,
-    token_expiration: user.reset_password_token_expiration,
+    reset_password_token: user.reset_password_token,
+    reset_password_token_expiration: user.reset_password_token_expiration,
+  });
+
+  user.reset_password_token = crypto.randomBytes(32).toString("hex");
+  user.reset_password_token_expiration =
+    new Date().getTime() + Number(process.env.OTP_EXPIRATION);
+  const updatedUser = await user.save();
+
+  // sends email to the user
+  await sendEmail(generateResetPasswordVerificationParams(updatedUser));
+
+  return res.status(200).json({
+    data: { user: updatedUser },
+    message: "reset password verification email sent.",
   });
 });
