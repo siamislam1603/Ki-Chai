@@ -13,6 +13,7 @@ import {
   updateUserPasswordSchema,
   userLoginSchema,
   userSchema,
+  userTypeEnums,
   verifyAccountSchema,
   verifyOTPSchema,
 } from "../schemas/authValidation.js";
@@ -36,10 +37,12 @@ export const postRegister = asyncHandler(async (req, res, next) => {
 
   // request data validation
   const validatedUser = await userSchema().parseAsync(req.body);
+  let professional;
 
-  const professional = await professionalSchema(
-    validatedUser.user_type
-  ).parseAsync(req.body);
+  if (validatedUser.user_type !== userTypeEnums.enum.CUSTOMER)
+    professional = await professionalSchema(validatedUser.user_type).parseAsync(
+      req.body
+    );
 
   // generate hashed password
   validatedUser.password = await generateHashedPassword(validatedUser.password);
