@@ -1238,4 +1238,12 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
       "email"
     ]
   }
-]	POST	/api/auth//resend-verify-account-email	undefined}
+]	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 11:38:59AM	c7b0a777-a8cc-4659-bcf9-bce681f0b053	ReferenceError: next is not defined	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 11:39:26AM	558400f9-8f30-4015-8303-5b7450159dcf	ZodError: [
+  {
+    "code": "custom",
+    "message": "account verification email already sent!",
+    "path": [
+      "email"
+    ]
+  }
+]	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 11:48:30AM	47d615c7-eeb2-4702-a8ec-03219a373dd0	Error: test	POST	/api/auth//resend-verify-account-email	undefined}

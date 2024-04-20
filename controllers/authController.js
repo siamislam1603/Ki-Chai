@@ -109,7 +109,7 @@ export const verifyUserAccount = asyncHandler(async (req, res) => {
   });
 });
 
-export const resendVerifyAccountEmail = asyncHandler(async (req, res) => {
+export const resendVerifyAccountEmail = asyncHandler(async (req, res, next) => {
   const { email } = resendVerifyAccountEmailSchema(true).parse({
     email: req.body.email,
   });
@@ -120,25 +120,31 @@ export const resendVerifyAccountEmail = asyncHandler(async (req, res) => {
   if (!user) throw new BadRequest("invalid credentials!");
 
   // account verification email expiration validate
-  const { otp } = resendVerifyAccountEmailSchema().parse({
-    email,
-    account_verify_token: user.account_verify_token,
-    account_verify_token_expiration: user.account_verify_token_expiration,
-  });
+  const { otp } = resendVerifyAccountEmailSchema().parse(user);
 
-  user.account_verify_token = crypto.randomBytes(32).toString("hex");
-  user.account_verify_token_expiration =
-    new Date().getTime() + Number(process.env.OTP_EXPIRATION);
-  user.otp = otp;
-  const updatedUser = await user.save();
+  // transaction
+  const session = await mongoose.startSession();
+  try {
+    await session.withTransaction(async () => {
+      user.account_verify_token = crypto.randomBytes(32).toString("hex");
+      user.account_verify_token_expiration =
+        new Date().getTime() + Number(process.env.OTP_EXPIRATION);
+      user.otp = otp;
+      const updatedUser = await user.save({ session });
 
-  // sends email to the user
-  await sendEmail(generateVerifyAccountParams(updatedUser));
+      // sends email to the user
+      await sendEmail(generateVerifyAccountParams(updatedUser));
 
-  return res.status(200).json({
-    data: { user: updatedUser },
-    message: "account verification email sent.",
-  });
+      res.status(200).json({
+        data: { user: updatedUser },
+        message: "account verification email sent.",
+      });
+    });
+  } catch (err) {
+    next(err);
+  } finally {
+    session.endSession();
+  }
 });
 
 export const postLogin = asyncHandler(async (req, res) => {
