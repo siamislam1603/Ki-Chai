@@ -10,6 +10,7 @@ import {
   professionalSchema,
   resendVerifyAccountEmailSchema,
   resetPasswordVerificationSchema,
+  updateUserPasswordSchema,
   userLoginSchema,
   userSchema,
   verifyAccountSchema,
@@ -24,6 +25,12 @@ import {
 } from "../util/generateEmailParams.js";
 import sendEmail from "../util/sendEmail.js";
 
+const generateHashedPassword = async (password) => {
+  const salt = await bcrypt.genSalt(Number(process.env.SALT));
+  const hashedPassword = await bcrypt.hash(password, salt);
+  return hashedPassword;
+};
+
 export const postRegister = asyncHandler(async (req, res, next) => {
   req.body = { ...req.body, ...req.files };
 
@@ -35,8 +42,7 @@ export const postRegister = asyncHandler(async (req, res, next) => {
   ).parseAsync(req.body);
 
   // generate hashed password
-  const salt = await bcrypt.genSalt(Number(process.env.SALT));
-  validatedUser.password = await bcrypt.hash(validatedUser.password, salt);
+  validatedUser.password = await generateHashedPassword(validatedUser.password);
 
   // transaction
   const session = await mongoose.startSession();
@@ -202,4 +208,26 @@ export const resetPasswordVerification = asyncHandler(async (req, res) => {
   } finally {
     session.endSession();
   }
+});
+
+export const updateUserPassword = asyncHandler(async (req, res) => {
+  const { user_id, reset_password_token, password } =
+    updateUserPasswordSchema().parse(req.body);
+
+  const user = await User.findOne({
+    _id: user_id,
+    reset_password_token,
+    reset_password_token_expiration: { $gte: new Date().getTime() },
+  });
+
+  // invalid link validation
+  if (!user) throw new Forbidden("invalid link!");
+
+  // update password
+  user.reset_password_token = null;
+  user.reset_password_token_expiration = null;
+  user.password = await generateHashedPassword(password);
+  await user.save();
+
+  res.status(200).json({ message: "password reset successfully." });
 });

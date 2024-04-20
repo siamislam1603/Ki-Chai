@@ -173,3 +173,16 @@ export const resendVerifyAccountEmailSchema = (isPartial = false) => {
     }
   );
 };
+
+export const updateUserPasswordSchema = () =>
+  z
+    .object({
+      user_id: z.string().refine((val) => mongoose.Types.ObjectId.isValid(val)),
+      reset_password_token: z.string().length(64),
+      password: z.string().min(8).max(32),
+      confirm_password: z.string().min(8).max(32),
+    })
+    .refine(({ password, confirm_password }) => password === confirm_password, {
+      message: "Passwords don't match",
+      path: ["confirm_password"], // path of error
+    });

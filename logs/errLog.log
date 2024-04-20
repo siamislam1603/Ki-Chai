@@ -1246,4 +1246,12 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
       "email"
     ]
   }
-]	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 11:48:30AM	47d615c7-eeb2-4702-a8ec-03219a373dd0	Error: test	POST	/api/auth//resend-verify-account-email	undefined}
+]	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 11:48:30AM	47d615c7-eeb2-4702-a8ec-03219a373dd0	Error: test	POST	/api/auth//resend-verify-account-email	undefined}Apr 20, 2024 12:23:35PM	425376d3-09e0-431c-869a-34b335b3de3c	ZodError: [
+  {
+    "code": "custom",
+    "message": "Passwords don't match",
+    "path": [
+      "confirm_password"
+    ]
+  }
+]	POST	/api/auth/reset-password	undefined}Apr 20, 2024 12:23:46PM	8554d6e5-f1eb-4ce8-a3b4-baf5955843b0	TypeError: user.save is not a function	POST	/api/auth/reset-password	undefined}Apr 20, 2024 12:23:58PM	ee05dbfe-62c5-4a54-beb7-75c437742dc6	Error: invalid link!	POST	/api/auth/reset-password	undefined}Apr 20, 2024 12:26:34PM	186cc770-f89f-44e2-8649-78282ab6484c	Error: invalid link!	POST	/api/auth/reset-password	undefined}

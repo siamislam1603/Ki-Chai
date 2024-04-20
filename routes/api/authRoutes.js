@@ -43,4 +43,10 @@ authRoutes.post(
   authController.resetPasswordVerification
 );
 
+authRoutes.post(
+  "/reset-password",
+  upload.none(),
+  authController.updateUserPassword
+);
+
 export default authRoutes;
