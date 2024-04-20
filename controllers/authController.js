@@ -179,22 +179,27 @@ export const resetPasswordVerification = asyncHandler(async (req, res) => {
   if (!user) throw new BadRequest("invalid credentials!");
 
   // reset password expiration validate
-  resetPasswordVerificationSchema().parse({
-    email,
-    reset_password_token: user.reset_password_token,
-    reset_password_token_expiration: user.reset_password_token_expiration,
-  });
+  resetPasswordVerificationSchema().parse(user);
+  // transaction
+  const session = await mongoose.startSession();
+  try {
+    await session.withTransaction(async () => {
+      user.reset_password_token = crypto.randomBytes(32).toString("hex");
+      user.reset_password_token_expiration =
+        new Date().getTime() + Number(process.env.OTP_EXPIRATION);
+      const updatedUser = await user.save();
 
-  user.reset_password_token = crypto.randomBytes(32).toString("hex");
-  user.reset_password_token_expiration =
-    new Date().getTime() + Number(process.env.OTP_EXPIRATION);
-  const updatedUser = await user.save();
+      // sends email to the user
+      await sendEmail(generateResetPasswordVerificationParams(updatedUser));
 
-  // sends email to the user
-  await sendEmail(generateResetPasswordVerificationParams(updatedUser));
-
-  return res.status(200).json({
-    data: { user: updatedUser },
-    message: "reset password verification email sent.",
-  });
+      res.status(200).json({
+        data: { user: updatedUser },
+        message: "reset password verification email sent.",
+      });
+    });
+  } catch (err) {
+    next(err);
+  } finally {
+    session.endSession();
+  }
 });
