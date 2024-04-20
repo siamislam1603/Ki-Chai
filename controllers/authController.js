@@ -154,24 +154,28 @@ export const resendVerifyAccountEmail = asyncHandler(async (req, res, next) => {
 });
 
 export const postLogin = asyncHandler(async (req, res) => {
-  const { email, password } = userLoginSchema().parse(req.body);
+  const validatedData = userLoginSchema().parse(req.body);
 
-  const existingUser = await User.findOne({ email }).lean();
+  const existingUser = await User.findOne({
+    email: validatedData.email,
+  }).lean();
   if (!existingUser) throw new Unauthorized("invalid credentials!");
 
+  const { password, ...user } = existingUser;
+
   const isPasswordCorrect = await bcrypt.compare(
-    password,
-    existingUser.password
+    validatedData.password,
+    password
   );
   if (!isPasswordCorrect) throw new Unauthorized("invalid credentials!");
 
   const token = jwt.sign(
-    { email: existingUser.email, id: existingUser._id },
+    { email: user.email, id: user._id },
     process.env.ACCESS_TOKEN_SECRET,
     { expiresIn: process.env.TOKEN_EXPIRATION }
   );
 
-  return res.status(200).json({ data: { user: existingUser, token } });
+  return res.status(200).json({ data: { user, token } });
 });
 
 export const resetPasswordVerification = asyncHandler(async (req, res) => {
