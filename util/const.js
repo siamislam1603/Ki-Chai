@@ -25,3 +25,6 @@ export const generateOTP = () => {
   }
   return +OTP;
 };
+
+export const deSelectUserColumns =
+  "-password -otp -account_verify_token -account_verify_token_expiration -reset_password_token_expiration -reset_password_token";

@@ -1308,4 +1308,4 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     ],
     "message": "Required"
   }
-]	POST	/api/auth/register	undefined}Apr 20, 2024 2:07:49PM	9b94e596-f048-4261-ba00-2d0b2de04121	ReferenceError: user_type is not defined	POST	/api/auth/register	undefined}
+]	POST	/api/auth/register	undefined}Apr 20, 2024 2:07:49PM	9b94e596-f048-4261-ba00-2d0b2de04121	ReferenceError: user_type is not defined	POST	/api/auth/register	undefined}Apr 22, 2024 10:05:4AM	70d38348-2ecf-445a-bff6-d4555e89d764	ValidationError: Job validation failed: is_accepted: Path `is_accepted` is required.	GET	/api/user/dashboard	undefined}Apr 22, 2024 10:10:53AM	12bd2131-d9cf-497b-8fb8-ab9199cf43e3	StrictPopulateError: Cannot populate path `user` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/api/user/dashboard	undefined}
