@@ -1308,4 +1308,346 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
     ],
     "message": "Required"
   }
-]	POST	/api/auth/register	undefined}Apr 20, 2024 2:07:49PM	9b94e596-f048-4261-ba00-2d0b2de04121	ReferenceError: user_type is not defined	POST	/api/auth/register	undefined}Apr 22, 2024 10:05:4AM	70d38348-2ecf-445a-bff6-d4555e89d764	ValidationError: Job validation failed: is_accepted: Path `is_accepted` is required.	GET	/api/user/dashboard	undefined}Apr 22, 2024 10:10:53AM	12bd2131-d9cf-497b-8fb8-ab9199cf43e3	StrictPopulateError: Cannot populate path `user` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/api/user/dashboard	undefined}
+]	POST	/api/auth/register	undefined}Apr 20, 2024 2:07:49PM	9b94e596-f048-4261-ba00-2d0b2de04121	ReferenceError: user_type is not defined	POST	/api/auth/register	undefined}Apr 22, 2024 10:05:4AM	70d38348-2ecf-445a-bff6-d4555e89d764	ValidationError: Job validation failed: is_accepted: Path `is_accepted` is required.	GET	/api/user/dashboard	undefined}Apr 22, 2024 10:10:53AM	12bd2131-d9cf-497b-8fb8-ab9199cf43e3	StrictPopulateError: Cannot populate path `user` because it is not in your schema. Set the `strictPopulate` option to false to override.	GET	/api/user/dashboard	undefined}Apr 22, 2024 1:37:18PM	e56ac05e-6e1b-49ff-b954-47cdb6a3454d	ReferenceError: professionalsFilterSchma is not defined	GET	/api/user/professionals	undefined}Apr 22, 2024 1:37:49PM	13fa38bf-a710-4a3c-bde9-6c58f22c9949	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals	undefined}Apr 22, 2024 1:39:16PM	d49566a1-410b-430d-8e16-e72d558e6f04	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals	undefined}Apr 22, 2024 1:39:24PM	744012dc-6993-4cd1-8182-b97fc56074f2	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals	undefined}Apr 22, 2024 1:40:5PM	a7ef45c9-7b42-415c-802b-104c2db807f1	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=1	undefined}Apr 22, 2024 1:40:19PM	c75fd364-b185-4557-a219-a71a36423d6f	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:41:18PM	1b8bc303-7be4-48dc-95f4-b401ac512712	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:41:40PM	501a8cba-972e-4564-9bf8-0ce4c975ca27	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:43:9PM	4b729e3c-26ce-4ff5-8f6f-35d022b6b5c6	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "service_type"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:43:33PM	cf48d025-381e-44db-80b6-467744b76170	ReferenceError: mongoose is not defined	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:43:51PM	0d318cfc-0add-4897-b3d8-f6cd19de3f70	ReferenceError: Service is not defined	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:44:20PM	faf180eb-8ba8-486d-b475-34e82c7ec0fb	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "city"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "nan",
+    "path": [
+      "postcode"
+    ],
+    "message": "Expected number, received nan"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "string",
+    "received": "undefined",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Required"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221	undefined}Apr 22, 2024 1:45:8PM	f0f32715-9d10-4040-b318-d5162ec34dd9	ZodError: [
+  {
+    "code": "invalid_string",
+    "validation": "datetime",
+    "message": "Invalid datetime",
+    "path": [
+      "expire_at"
+    ]
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-04-22%2013:45	undefined}Apr 22, 2024 1:45:17PM	6cc1ccac-a9fc-4c06-ba1b-5b602017cc42	ZodError: [
+  {
+    "code": "invalid_string",
+    "validation": "datetime",
+    "message": "Invalid datetime",
+    "path": [
+      "expire_at"
+    ]
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-04-22T13:45	undefined}Apr 22, 2024 2:15:36PM	165c53a5-3e3c-45cd-8d1a-fdd18707fc06	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:47PM	58356316-1a2e-4925-8de4-920878b93346	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:48PM	269fdcb4-dfbb-4913-b0e2-21ade06bb8fc	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:49PM	18d2824c-02d1-47b7-ae0f-4d58281148da	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:18:28PM	62922b27-2406-4db4-bc67-ea6a41b9a9d4	ReferenceError: validatedData is not defined	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}

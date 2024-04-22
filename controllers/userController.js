@@ -1,6 +1,7 @@
 import asyncHandler from "express-async-handler";
 import Job from "../models/Job.js";
 import User from "../models/User.js";
+import { professionalsFilterSchema } from "../schemas/userValidation.js";
 import { deSelectUserColumns } from "../util/const.js";
 
 export const getUserDashboard = asyncHandler(async (req, res) => {
@@ -24,4 +25,16 @@ export const getUserDashboard = asyncHandler(async (req, res) => {
     ])
     .lean();
   res.status(200).json({ data: { user, upcomingJobs } });
+});
+
+export const getProfessionals = asyncHandler(async (req, res) => {
+  const { service_type, city, postcode, expire_at } =
+    await professionalsFilterSchema().parseAsync(req.query);
+  const professionals = await User.find({
+    $or: [{ vendor: { $exists: false } }, { specialist: { $exists: false } }],
+  }).populate([{ path: "vendor" }, { path: "specialist" }]);
+
+  res.status(200).json({
+    data: { totalProfessionals: professionals.length, professionals },
+  });
 });
