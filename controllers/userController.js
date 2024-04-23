@@ -30,11 +30,44 @@ export const getUserDashboard = asyncHandler(async (req, res) => {
 export const getProfessionals = asyncHandler(async (req, res) => {
   const { service_type, city, postcode, expire_at } =
     await professionalsFilterSchema().parseAsync(req.query);
-  const professionals = await User.find({
-    $or: [{ vendor: { $exists: false } }, { specialist: { $exists: false } }],
-  }).populate([{ path: "vendor" }, { path: "specialist" }]);
+  const professionals = await User.aggregate([
+    {
+      $match: {
+        $or: [{ vendor: { $exists: true } }, { specialist: { $exists: true } }],
+      },
+    },
+    {
+      $lookup: {
+        from: "vendors", // Assuming the collection name for vendors is "vendors"
+        localField: "vendor",
+        foreignField: "_id",
+        as: "vendor",
+      },
+    },
+    {
+      $lookup: {
+        from: "specialists", // Assuming the collection name for specialists is "specialists"
+        localField: "specialist",
+        foreignField: "_id",
+        as: "specialist",
+      },
+    },
+    {
+      $match: {
+        $or: [
+          { "vendor.interests": service_type },
+          {
+            "specialist.interests": service_type,
+          },
+        ],
+      },
+    },
+  ]);
 
   res.status(200).json({
-    data: { totalProfessionals: professionals.length, professionals },
+    data: {
+      totalProfessionals: professionals.length,
+      professionals,
+    },
   });
 });
