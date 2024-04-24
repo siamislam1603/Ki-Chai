@@ -1650,4 +1650,61 @@ Apr 10, 2024 9:35:6PM	71d8b86c-ce45-45c0-9cb2-dd1ebe7fd58a	MulterError: Field na
       "expire_at"
     ]
   }
-]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-04-22T13:45	undefined}Apr 22, 2024 2:15:36PM	165c53a5-3e3c-45cd-8d1a-fdd18707fc06	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:47PM	58356316-1a2e-4925-8de4-920878b93346	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:48PM	269fdcb4-dfbb-4913-b0e2-21ade06bb8fc	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:49PM	18d2824c-02d1-47b7-ae0f-4d58281148da	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:18:28PM	62922b27-2406-4db4-bc67-ea6a41b9a9d4	ReferenceError: validatedData is not defined	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 23, 2024 5:09:42PM	492c93a7-a84e-441d-afd2-b9a8700e38e6	Error: Can't use per_hour_rate	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-04-22T13:45	undefined}Apr 22, 2024 2:15:36PM	165c53a5-3e3c-45cd-8d1a-fdd18707fc06	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:47PM	58356316-1a2e-4925-8de4-920878b93346	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:48PM	269fdcb4-dfbb-4913-b0e2-21ade06bb8fc	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:15:49PM	18d2824c-02d1-47b7-ae0f-4d58281148da	Error: Can't use $neq	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 22, 2024 2:18:28PM	62922b27-2406-4db4-bc67-ea6a41b9a9d4	ReferenceError: validatedData is not defined	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 23, 2024 5:09:42PM	492c93a7-a84e-441d-afd2-b9a8700e38e6	Error: Can't use per_hour_rate	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219&expire_at=2024-4-22%2013:54:55	undefined}Apr 24, 2024 9:13:40AM	9c2bd7fd-3e02-4fcd-91f4-c05a114c41bf	ZodError: [
+  {
+    "code": "invalid_date",
+    "path": [
+      "expire_at"
+    ],
+    "message": "Invalid date"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 9:14:59AM	4e459ad6-2a0b-45f0-81fd-008e3b6ddac2	TypeError: Class constructor ObjectId cannot be invoked without 'new'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 9:16:12AM	00ab7817-e952-4f9a-9ce6-1c7654e208c2	TypeError: Class constructor ObjectId cannot be invoked without 'new'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c221&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 9:24:22AM	897dc4ea-e46b-4dd8-b6c7-cc101e75f67f	Error: Arguments must be aggregate pipeline operators	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:45:52PM	377f239a-4986-48a2-b8fc-5df8c2ef9949	MongoServerError: Invalid $addFields :: caused by :: Unrecognized expression '$exists'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:47:10PM	79f40e56-39e4-47e9-ac8e-a295260fff71	MongoServerError: Invalid $addFields :: caused by :: FieldPath field names may not contain '.'. Consider using $getField or $setField.	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:48:4PM	d383a3db-2498-4a97-9426-5706e075374f	MongoServerError: Invalid $addFields :: caused by :: Unrecognized expression '$exists'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:53:5PM	2b2014bc-2dd4-417b-a28b-adc03ad07d35	MongoServerError: Invalid $project :: caused by :: Unrecognized expression '$exists'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:55:42PM	2a4831f6-20ec-4f69-9e87-9d9e501b8c7b	MongoServerError: Invalid $project :: caused by :: Unrecognized expression '$professionals.0'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 12:55:58PM	04e0f184-ddb5-4985-aa79-a18f5c6bf32d	MongoServerError: Invalid $project :: caused by :: FieldPath field names may not contain '.'. Consider using $getField or $setField.	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 1:07:27PM	83c88c0a-bc48-4257-89bf-1bf77cff64fa	MongoServerError: Invalid $addFields :: caused by :: Unrecognized expression '$exists'	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&city=Dhaka&postcode=1219	undefined}Apr 24, 2024 1:21:9PM	afffc253-128f-4b57-8e6f-57d8be34bd24	ZodError: [
+  {
+    "received": "25",
+    "code": "invalid_enum_value",
+    "options": [
+      25,
+      50,
+      100
+    ],
+    "path": [
+      "limit"
+    ],
+    "message": "Invalid enum value. Expected 25 | 50 | 100, received '25'"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "page"
+    ],
+    "message": "Expected number, received string"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&limit=25&search&page=1	undefined}Apr 24, 2024 1:26:6PM	c151bb20-9e0d-4da2-ac81-827239b24e67	ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "number",
+    "received": "string",
+    "path": [
+      "page"
+    ],
+    "message": "Expected number, received string"
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&limit=25&search&page=1	undefined}Apr 24, 2024 1:26:33PM	d9d8e503-f942-47e1-b90a-23ae61f7a42d	ZodError: [
+  {
+    "code": "custom",
+    "message": "page limits can only be one of these: (25, 50, 100)",
+    "path": [
+      "limit"
+    ]
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&limit=26&search&page=1	undefined}Apr 24, 2024 1:30:11PM	f40123a5-5d99-4677-a321-7530f39d6aa8	ZodError: [
+  {
+    "code": "custom",
+    "message": "page limits can only be one of these: (25, 50, 100)",
+    "path": [
+      "limit"
+    ]
+  }
+]	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&limit=26&search&page=1	undefined}Apr 24, 2024 1:38:56PM	fad4cc88-a4f4-47af-8972-c40d3bf8df82	MongoServerError: $and must be an array	GET	/api/user/professionals?service_type=661cc645c376f33092b3c224&limit=25&search=Specialist39&page=1	undefined}

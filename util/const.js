@@ -16,6 +16,8 @@ export const fieldNames = Object.freeze({
   REGISTER: "register",
 });
 
+export const paginationLimits = [25, 50, 100];
+
 export const generateOTP = () => {
   const digits = "0123456789";
   const limit = 6;

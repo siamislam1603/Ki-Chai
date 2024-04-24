@@ -28,25 +28,29 @@ export const getUserDashboard = asyncHandler(async (req, res) => {
 });
 
 export const getProfessionals = asyncHandler(async (req, res) => {
-  const { service_type, city, postcode, expire_at } =
+  const { service_type, limit, search, page } =
     await professionalsFilterSchema().parseAsync(req.query);
   const professionals = await User.aggregate([
     {
       $match: {
-        $or: [{ vendor: { $exists: true } }, { specialist: { $exists: true } }],
+        $or: [{ vendor: { $exists: true } }, { specialist: { $exists: true } }], // select only professionals not customers
+        $or: [
+          { first_name: { $regex: `.*${search}.*`, $options: "i" } }, // filter professionals using search value
+          { last_name: { $regex: `.*${search}.*`, $options: "i" } },
+        ],
       },
     },
     {
       $lookup: {
-        from: "vendors", // Assuming the collection name for vendors is "vendors"
-        localField: "vendor",
-        foreignField: "_id",
-        as: "vendor",
+        from: "vendors", // Parent table that contains vendor id"
+        localField: "vendor", // field of the table I've been using aggregate piplelines
+        foreignField: "_id", // Vendor table primary key that's been referred in the User table
+        as: "vendor", // vendor table data will be stored in this field
       },
     },
     {
       $lookup: {
-        from: "specialists", // Assuming the collection name for specialists is "specialists"
+        from: "specialists",
         localField: "specialist",
         foreignField: "_id",
         as: "specialist",
@@ -55,19 +59,50 @@ export const getProfessionals = asyncHandler(async (req, res) => {
     {
       $match: {
         $or: [
-          { "vendor.interests": service_type },
+          { "vendor.0.interests": service_type },
           {
-            "specialist.interests": service_type,
+            "specialist.0.interests": service_type,
           },
         ],
+      },
+    },
+    {
+      $group: {
+        _id: null, // group everything into a single document
+        total: {
+          $sum: 1, // total professionals length count
+        },
+        professionals: {
+          $push: "$$ROOT", // added new field named professionals & pushed each professional object in the array
+        },
+      },
+    },
+    {
+      $project: {
+        _id: 0, // remove this column from the documents
+        total: 1, // add this column in the documents
+        professionals: {
+          $slice: ["$professionals", (page - 1) * limit, limit], // paginated professional based on limit & page no.
+        },
+        last_page: { $ceil: { $divide: ["$total", limit] } }, // last page no. calculated
+      },
+    },
+    {
+      $addFields: {
+        current_page: {
+          $cond: {
+            if: { $gt: [page, "$last_page"] }, // if current_page > last_page then value should be null otherwise the current_page
+            then: null,
+            else: page,
+          },
+        },
       },
     },
   ]);
 
   res.status(200).json({
     data: {
-      totalProfessionals: professionals.length,
-      professionals,
+      ...professionals[0],
     },
   });
 });
