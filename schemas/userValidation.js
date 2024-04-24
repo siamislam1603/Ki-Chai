@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { z } from "zod";
 import Service from "../models/Service.js";
-import { paginationLimitSchema } from "./customSchemas.js";
+import { customBooleanSchema, paginationLimitSchema } from "./customSchemas.js";
 
 export const professionalsFilterSchema = () =>
   z.object({
@@ -24,4 +24,5 @@ export const professionalsFilterSchema = () =>
     limit: paginationLimitSchema,
     search: z.string().default(""),
     page: z.coerce.number().positive().gt(0),
+    is_available_for_emergency: customBooleanSchema,
   });

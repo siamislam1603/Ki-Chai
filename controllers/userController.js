@@ -28,7 +28,7 @@ export const getUserDashboard = asyncHandler(async (req, res) => {
 });
 
 export const getProfessionals = asyncHandler(async (req, res) => {
-  const { service_type, limit, search, page } =
+  const { service_type, limit, search, page, is_available_for_emergency } =
     await professionalsFilterSchema().parseAsync(req.query);
   const professionals = await User.aggregate([
     {
@@ -59,9 +59,16 @@ export const getProfessionals = asyncHandler(async (req, res) => {
     {
       $match: {
         $or: [
-          { "vendor.0.interests": service_type },
+          { "vendor.0.interests": service_type }, // interests contain this value
           {
             "specialist.0.interests": service_type,
+          },
+        ],
+        $or: [
+          { "vendor.0.is_available_for_emergency": is_available_for_emergency }, // filter by is_available_for_emergency value
+          {
+            "specialist.0.is_available_for_emergency":
+              is_available_for_emergency,
           },
         ],
       },
