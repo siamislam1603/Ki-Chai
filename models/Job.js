@@ -33,9 +33,12 @@ const jobSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
-    price: {
+    customer_offered_price: {
       type: Number,
       required: true,
+    },
+    professional_offered_price: {
+      type: Number,
     },
     job_description: {
       type: String,

@@ -7,6 +7,11 @@ const reviewSchema = new mongoose.Schema(
       required: true,
       ref: "Job",
     },
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      ref: "User",
+    },
     rating: {
       type: Number,
       required: true,

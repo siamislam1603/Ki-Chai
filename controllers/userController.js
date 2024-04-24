@@ -113,3 +113,7 @@ export const getProfessionals = asyncHandler(async (req, res) => {
     },
   });
 });
+
+export const postJob = asyncHandler(async (req, res) => {
+  
+});
