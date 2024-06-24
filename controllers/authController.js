@@ -26,7 +26,7 @@ import {
 } from "../util/generateEmailParams.js";
 import sendEmail from "../util/sendEmail.js";
 
-const generateHashedPassword = async (password) => {
+export const generateHashedPassword = async (password) => {
   const salt = await bcrypt.genSalt(Number(process.env.SALT));
   const hashedPassword = await bcrypt.hash(password, salt);
   return hashedPassword;

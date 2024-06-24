@@ -1,13 +1,22 @@
 import Service from "../models/Service.js";
 import User from "../models/User.js";
+import Vendor from "../models/Vendor.js";
+import Specialist from "../models/Specialist.js";
+import { generateHashedPassword } from "../controllers/authController.js";
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
+}
+
+const getEncryptedPassword=async(password)=>{
+  return await generateHashedPassword(password);
 }
 export default async function seedUsers() {
   return;
   const users = [];
   const services = await Service.find().select("_id").lean();
+  const password=await getEncryptedPassword('adminpass')
+  console.log(password)
 
   // Create vendors
   for (let i = 0; i < 50; i++) {
@@ -24,7 +33,7 @@ export default async function seedUsers() {
       first_name: `Vendor${i}`,
       last_name: `Doe`,
       email: `vendor${i}@example.com`,
-      password: `adminpass`,
+      password: password,
       city: "New York",
       postcode: 12345,
       phone: `123456780${i}`,
@@ -54,7 +63,7 @@ export default async function seedUsers() {
       first_name: `Specialist${i}`,
       last_name: `Doe`,
       email: `specialist${i}@example.com`,
-      password: `adminpass`,
+      password: password,
       city: "Los Angeles",
       postcode: 54321,
       phone: `098765432${i}`,
@@ -74,7 +83,7 @@ export default async function seedUsers() {
           first_name: `Customer${i}`,
           last_name: `Doe`,
           email: `customer${i}@example.com`,
-          password: `adminpass`,
+          password: password,
           city: "Los Angeles",
           postcode: 54321,
           phone: `018765432${i}`,
